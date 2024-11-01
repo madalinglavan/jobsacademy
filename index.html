@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobsAcademy.dk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">JobsAcademy</div>
+            <div class="user-type-toggle">
+                <button class="toggle-btn active" onclick="switchUserType('jobseeker')">JobSeeker</button>
+                <button class="toggle-btn" onclick="switchUserType('employer')">Company</button>
+                <div class="active-indicator" id="activeIndicator"></div>
+            </div>
+            <div class="burger-menu" onclick="toggleMobileMenu(this)">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#despre">Despre noi</a></li>
+                <li><a href="#locuri-munca">Locuri de muncă</a></li>
+                <li><a href="#servicii">Servicii</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#despre" onclick="navigateTo(event, '#despre')">Despre noi</a></li>
+            <li><a href="#locuri-munca" onclick="navigateTo(event, '#locuri-munca')">Locuri de muncă</a></li>
+            <li><a href="#servicii" onclick="navigateTo(event, '#servicii')">Servicii</a></li>
+            <li><a href="#contact" onclick="navigateTo(event, '#contact')">Contact</a></li>
+        </ul>
+    </div>
+
+    <div id="mainContent">
+        <!-- Secțiunea pentru JobSeeker -->
+        <section id="jobseekerContent" class="active">
+            <h1>Bine ați venit la JobsAcademy.dk!</h1>
+            <p>Explorați cele mai noi oportunități de carieră și aplicați pentru jobul visurilor dvs.</p>
+            <button>Vezi locuri de muncă</button>
+        </section>
+    
+        <!-- Secțiunea pentru Company -->
+        <section id="employerContent">
+            <h1>Bine ați venit la JobsAcademy.dk!</h1>
+            <p>Aici puteți găsi și angaja cei mai potriviți candidați pentru pozițiile disponibile în compania dvs.</p>
+            <button>Postează un job</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

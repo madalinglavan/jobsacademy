@@ -1,0 +1,171 @@
+/* CSS general */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header și navbar */
+
+header {
+    background-color: #4A90E2;
+    color: #fff;
+    padding: 15px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-type-toggle {
+    display: flex;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Butoane toggle și indicator activ */
+
+.toggle-btn {
+    flex: 1;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4A90E2;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+.toggle-btn.active {
+    color: #fff;
+}
+
+.active-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #4ab2e2;
+    border-radius: 20px;
+    transition: left 0.4s ease;
+}
+
+/* Linkuri de navigare */
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Meniu burger pentru mobil */
+
+.burger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.burger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Stil pentru secțiuni */
+
+#mainContent section {
+    display: none;
+}
+#mainContent .active {
+    display: block;
+}
+
+/* Meniu mobil */
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #4A90E2;
+    color: white;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    text-align: center;
+}
+
+.mobile-nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    padding: 10px 0;
+    position: relative;
+}
+
+.mobile-nav-links li a:hover {
+    text-decoration: underline;
+}
+
+/* Animatii pentru burger menu */
+
+.burger-menu.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Media Query pentru mobil */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .burger-menu {
+        display: block;
+    }
+    
+}
