@@ -56,3 +56,55 @@ function navigateTo(event, target) {
     const burger = document.querySelector('.burger-menu');
     burger.classList.remove("open"); // De asemenea, închide burger menu
 }
+document.getElementById('openPopupBtn').onclick = function() {
+    document.getElementById('cvPopup').style.display = 'block';
+};
+
+document.getElementById('closePopup').onclick = function() {
+    document.getElementById('cvPopup').style.display = 'none';
+};
+
+window.onclick = function(event) {
+    const popup = document.getElementById('cvPopup');
+    if (event.target === popup) {
+        popup.style.display = 'none';
+    }
+};
+
+// Form submission handling (you can adjust this part later)
+document.getElementById('cvForm').onsubmit = function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const fileInput = document.getElementById('cvFile');
+    if (fileInput.files.length > 0) {
+        // You can add your file upload logic here (e.g., using FormData to send to your server)
+        alert('CV uploaded successfully!'); // Placeholder for successful submission logic
+        document.getElementById('cvPopup').style.display = 'none'; // Close the popup after submission
+    } else {
+        alert('Please select a file to upload.');
+    }
+};
+// Open job offer popup
+document.getElementById("openEmployeePopupBtn").onclick = function() {
+    document.getElementById("jobOfferPopup").style.display = "block";
+}
+
+// Close job offer popup
+document.getElementById("closeEmployeePopup").onclick = function() {
+    document.getElementById("jobOfferPopup").style.display = "none";
+}
+
+// Close the popup when clicking outside of the popup content
+window.onclick = function(event) {
+    if (event.target === document.getElementById("jobOfferPopup")) {
+        document.getElementById("jobOfferPopup").style.display = "none";
+    }
+}
+
+// Handle form submission
+document.getElementById("jobOfferForm").onsubmit = function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    // Handle the file upload logic here (e.g., using AJAX or form submission)
+    alert("Job offer file submitted!");
+    document.getElementById("jobOfferPopup").style.display = "none"; // Close the popup
+};
