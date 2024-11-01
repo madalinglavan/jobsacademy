@@ -170,8 +170,8 @@ header {
 
 @media (max-width: 768px) {
     header{
-        padding: 30px;
-        justify-content: space-between;
+        padding-top: 20px;
+        margin: 0 auto;
     }
     .nav-links {
         display: none;
