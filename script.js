@@ -50,5 +50,9 @@ window.addEventListener('click', function(event) {
 // Funcția de navigare cu animație de subliniere
 function navigateTo(event, target) {
     event.preventDefault();
-    const link = event.target;
+    document.querySelector(target).scrollIntoView({ behavior: "smooth" });
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileMenu.style.right = "-100%"; // Închide meniul mobil după navigare
+    const burger = document.querySelector('.burger-menu');
+    burger.classList.remove("open"); // De asemenea, închide burger menu
 }
