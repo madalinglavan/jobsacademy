@@ -13,18 +13,19 @@ function switchUserType(userType) {
         indicator.style.left = "0";
         jobseekerContent.classList.remove("hidden");
         employerContent.classList.add("hidden");
-        jobseekerBtn.classList.add("active");
-        employerBtn.classList.remove("active");
+        jobseekerBtn.classList.add("active"); // Adaugă clasa active
+        employerBtn.classList.remove("active"); // Elimină clasa active
     } else {
         indicator.style.left = "50%";
         employerContent.classList.remove("hidden");
         jobseekerContent.classList.add("hidden");
-        employerBtn.classList.add("active");
-        jobseekerBtn.classList.remove("active");
+        employerBtn.classList.add("active"); // Adaugă clasa active
+        jobseekerBtn.classList.remove("active"); // Elimină clasa active
     }
 
-    currentType = userType;
+    currentType = userType === "jobseeker" ? 'jobseekerContent' : 'employerContent';
 }
+
 
 // Apelează funcția pentru a seta starea inițială la încărcarea paginii
 window.onload = function() {
