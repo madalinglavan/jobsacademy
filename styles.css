@@ -1,361 +1,278 @@
-/* CSS general */
-
+/* Resetare stiluri */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Stil global */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Header și navbar */
-
+/* Header */
 header {
-    background-color: #4A90E2;
-    color: #fff;
-    padding: 15px;
+    background: linear-gradient(to right, #4ae2a8, #4ab2e2);
+    color: white;
+    padding: 15px 20px;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    flex-wrap: wrap;
 }
 
-.logo a{
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo a {
+    font-size: 1.8rem;
     text-decoration: none;
-    color: #ffffff;
+    color: #fff;
+    font-weight: bold;
 }
 
+/* User type toggle */
 .user-type-toggle {
     display: flex;
-    position: relative;
-    width: 200px;
-    height: 40px;
-    background-color: #e0e0e0;
-    border-radius: 20px;
-    overflow: hidden;
+    align-items: center;
+    margin: 0 20px;
 }
-
-/* Butoane toggle și indicator activ */
 
 .toggle-btn {
-    flex: 1;
-    border: none;
     background: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     cursor: pointer;
-    font-size: 0.8rem;
-    color: #4A90E2;
-    z-index: 1;
-    transition: color 0.3s;
+    transition: background 0.3s ease;
 }
 
-.toggle-btn.active {
-    color: #fff;
+.toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .active-indicator {
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 5px;
     width: 50%;
-    height: 100%;
-    background-color: #4ab2e2;
-    border-radius: 20px;
-    transition: left 0.6s ease, box-shadow 0.6s ease; /* Adăugat box-shadow în tranziție */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.658); /* Umbră inițială */
+    background-color: #fff;
+    transition: all 0.3s ease;
 }
 
-/* Efectul de umbră la hover */
-.toggle-btn:hover + .active-indicator {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Umbră mai pronunțată la hover */
-}
-
-/* Linkuri de navigare */
-
+/* Links */
 .nav-links {
+    list-style: none;
     display: flex;
     gap: 20px;
 }
 
 .nav-links a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    position: relative;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+    color: #e0e0e0;
 }
 
-/* Meniu burger pentru mobil */
-
 .burger-menu {
-    display: none;
+    display: block; /* Asigură-te că este vizibil pe mobil */
     cursor: pointer;
+    z-index: 100;
 }
 
 .burger-menu .bar {
-    width: 25px;
+    width: 30px;
     height: 3px;
     background-color: white;
-    margin: 4px 0;
+    margin: 5px;
     transition: all 0.3s ease;
+    z-index: 100;
 }
 
-/* Stil pentru secțiuni */
-
-#mainContent section {
-    display: none;
-}
-#mainContent .active {
-    display: block;
-}
-
-/* Meniu mobil */
-
+/* Mobile menu */
 .mobile-menu {
     position: fixed;
     top: 0;
     right: -100%;
     width: 250px;
     height: 100%;
-    background-color: #4A90E2;
-    color: white;
-    transition: right 0.4s ease;
+    background-color: #4ae2a8;
+    transition: right 0.3s ease, visibility 0.3s ease;
+    visibility: hidden; /* Inițial invizibil */
+    opacity: 0; /* Inițial complet transparent */
     z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.mobile-menu.open {
+    right: 0; /* Afișează meniul */
+    visibility: visible; /* Meniul devine vizibil */
+    opacity: 1; /* Meniul devine complet opac */
 }
 
 .mobile-nav-links {
     list-style: none;
-    text-align: center;
+    padding: 20px;
 }
 
 .mobile-nav-links li a {
     color: white;
-    text-decoration: none;
-    font-size: 20px;
+    padding: 10px;
     display: block;
-    padding: 10px 0;
-    position: relative;
+    text-decoration: none;
+    transition: background 0.3s ease;
 }
 
 .mobile-nav-links li a:hover {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Animatii pentru burger menu */
-
+/* Animație pentru burger menu */
 .burger-menu.open .bar:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
 .burger-menu.open .bar:nth-child(2) {
-    opacity: 0;
+    opacity: 0; /* Ascunde bara din mijloc */
 }
 
 .burger-menu.open .bar:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
-#employerContent{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-}
-.employee-assistance{
-    width: 50%;
-    height: 50vh;
-    background-image: url(img/jobsacademyofficegirl.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 10px;
-}
-/* Employee Assistance Div */
-.employee-assistance {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa; /* Light background color */
-    border: 1px solid #dee2e6; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
 
-/* Button Style for Employee */
-#openEmployeePopupBtn {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-#openEmployeePopupBtn:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-#jobseekerContent{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-}
-.jobseeker-assistance{
-    width: 50%;
-    height: 50vh;
-    background-image: url(img/jobsacademysuiteconstruction.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 10px;
-}
-/* Job Seeker Assistance Div */
-.jobseeker-assistance {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa; /* Light background color */
-    border: 1px solid #dee2e6; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Button Style */
-#openPopupBtn {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#openPopupBtn:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-
-/* Popup Styles */
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-}
-
-/* Popup Content */
-.popup-content {
-    background-color: #fff;
-    margin: 15% auto;
+/* Secțiuni */
+#mainContent {
     padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+    background: white;
     border-radius: 8px;
-    width: 300px; /* Adjust width as needed */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s;
 }
 
-/* Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+section:hover {
+    transform: scale(1.02);
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Form Styles */
+/* Formulare */
 form {
     display: flex;
     flex-direction: column;
 }
 
 form label {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
-form input[type="file"] {
+form input, form select, form button {
     margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
 form button {
-    background-color: #28a745; /* Success color */
+    background-color: #4ae2a8;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #218838; /* Darker shade on hover */
+    background-color: #3e9e81;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+#employerContent {
+    padding: 20px;
+    background-color: #f9f9f9; /* Fundal deschis pentru contrast */
+    border-radius: 5px; /* Colțuri rotunjite */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Umbra pentru adâncime */
+}
+
+h2 {
+    color: #333; /* Culoare titlu */
+}
+
+label {
+    display: block;
+    margin-top: 10px; /* Spațiu între etichete */
+}
+
+input, textarea, select {
+    width: 100%; /* Lățime completă */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc; /* Contur subtil */
+    border-radius: 4px; /* Colțuri rotunjite */
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #4ae2a8; /* Culoarea butonului */
+    color: white; /* Text alb */
+    border: none;
+    border-radius: 4px; /* Colțuri rotunjite */
+    cursor: pointer; /* Cursor pointer */
+}
+
+button:hover {
+    background-color: #3da892; /* Culoare mai închisă la hover */
+}
+
+.hidden {
+    display: none; /* Ascunde elementul */
 }
 
 
-/* Media Query pentru mobil */
-
+/* Media Queries */
 @media (max-width: 768px) {
-    header{
-        padding-top: 20px;
-        margin: 0 auto;
-    }
-    .nav-links {
-        display: none;
-    }
     .burger-menu {
         display: block;
     }
-    .burger-menu .bar {
-        z-index: 2003330;
-    }
-    .logo a{
-        font-size: 1rem;
-        
-    }
-    .user-type-toggle {
-        width: 200px;
-        height: 30px;
 
-    }
-    .employee-assistance{
-        width: 100%;
-        height: 50vh;
-        margin: 10px;
-    }
-    .jobseeker-assistance{
-        width: 100%;
-        height: 50vh;
-        margin: 10px;
+    .nav-links {
+        display: none;
     }
 }
