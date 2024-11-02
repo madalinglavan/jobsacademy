@@ -152,7 +152,6 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
     background-color: #f0f4f8; /* Culoare de fundal deschisă */
     text-align: center;
     padding: 20px;
@@ -182,7 +181,7 @@ p {
 }
 
 .image {
-    width: 200px; /* Lățimea imaginilor */
+    width: 50%; /* Lățimea imaginilor */
     height: auto; /* Menține proporțiile */
     border-radius: 10px; /* Colțuri rotunjite */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Umbre pentru adâncire */
