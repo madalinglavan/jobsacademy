@@ -1,4 +1,4 @@
-let currentType = 'jobseeker'; // Implicit setat pe JobSeeker
+let currentType = 'jobseekerContent'; // Implicit setat pe JobSeeker
 
 function switchUserType(userType) {
     if (userType === currentType) return;
@@ -7,23 +7,29 @@ function switchUserType(userType) {
     const jobseekerBtn = document.querySelectorAll(".toggle-btn")[0];
     const employerBtn = document.querySelectorAll(".toggle-btn")[1];
     const jobseekerContent = document.getElementById("jobseekerContent");
+    const employerContent = document.getElementById("employerContent");
 
     if (userType === "jobseeker") {
         indicator.style.left = "0";
-        jobseekerContent.classList.add("active");
-        employerContent.classList.remove("active");
+        jobseekerContent.classList.remove("hidden");
+        employerContent.classList.add("hidden");
         jobseekerBtn.classList.add("active");
         employerBtn.classList.remove("active");
     } else {
         indicator.style.left = "50%";
-        employerContent.classList.add("active");
-        jobseekerContent.classList.remove("active");
+        employerContent.classList.remove("hidden");
+        jobseekerContent.classList.add("hidden");
         employerBtn.classList.add("active");
         jobseekerBtn.classList.remove("active");
     }
 
     currentType = userType;
 }
+
+// Apelează funcția pentru a seta starea inițială la încărcarea paginii
+window.onload = function() {
+    switchUserType(currentType);
+};
 
 function toggleMobileMenu(burger) {
     const mobileMenu = document.getElementById("mobileMenu");
