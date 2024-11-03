@@ -160,6 +160,46 @@ header {
 .content {
     max-width: 800px;
 }
+.cta-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creează 3 coloane egale */
+    gap: 16px; /* Spațiu între coloane (opțional) */
+}
+
+.cta-content span{
+    color: red;
+}
+
+.division-content{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.division-content img{
+    width: 60%;
+    height: 200px;
+}
+.division-content p {
+    font-size: 1.2rem; 
+    text-align: start;
+    line-height: 1.5; 
+    color: #333; 
+    margin: 0 0 16px; 
+    padding: 10px 15px; 
+    background-color: #f9f9f9; 
+    border-left: 4px solid #007BFF; 
+    border-radius: 4px; 
+    opacity: 0; /* Inițial, paragraful este invizibil */
+    transform: translateY(20px); /* Se va muta puțin în jos */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Efect de tranziție pentru opacitate și poziție */
+}
+
+.division-content p.visible {
+    opacity: 1; /* Face paragraful vizibil */
+    transform: translateY(0); /* Mută paragraful înapoi la poziția inițială */
+}
 
 h1 {
     font-size: 2.5rem;
@@ -332,5 +372,17 @@ button:hover {
 
     .nav-links {
         display: none;
+    }
+    .cta-content {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* Creează 3 coloane egale */
+        gap: 16px; /* Spațiu între coloane (opțional) */
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cta-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Creează 3 coloane egale */
+        gap: 16px; /* Spațiu între coloane (opțional) */
     }
 }

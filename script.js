@@ -71,3 +71,30 @@ function handleEmployerSubmit(event) {
     document.getElementById('confirmationMessageEmployer').classList.remove('hidden');
     event.target.reset(); // Resetează formularul
 }
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const paragraphs = document.querySelectorAll('.division-content p');
+
+    const checkVisibility = () => {
+        const windowHeight = window.innerHeight;
+
+        paragraphs.forEach(paragraph => {
+            const { top, bottom } = paragraph.getBoundingClientRect();
+
+            // Verifică dacă paragraful este în vizibilitate
+            if (top < windowHeight && bottom > 0) {
+                paragraph.classList.add('visible'); // Adaugă clasa 'visible' pentru a activa efectul
+            } else {
+                paragraph.classList.remove('visible'); // Elimină clasa dacă nu este vizibil
+            }
+        });
+    };
+
+    // Verifică vizibilitatea la derulare
+    window.addEventListener('scroll', checkVisibility);
+    // Verifică vizibilitatea și la încărcarea paginii
+    checkVisibility();
+});
